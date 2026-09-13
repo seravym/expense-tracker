@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>535250112</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <img src="banner.jpg" alt="banner" class="header-banner">
+    </div>
+
+    <div class="main-content">
+        <div class="card title-card">
+            <h2 class="title-heading">Track Your Expenses</h2>
+            <p class="title-subtext">for better future.</p>
+        </div>
+        <div class="left-column">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Total Expenses</h3>
+                    <div class="card-icon" style="color: #ef4444;"></div>
+                </div>
+                <div class="amount expense-amount">Rp 0</div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Number of Transactions</h3>
+                    <div class="card-icon" style="color: #3b82f6;"></div>
+                </div>
+                <div class="amount" id="transactionCount">0</div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="card transaction-section">
+                <div class="card-header">
+                    <h3 class="card-title">Recent Transactions</h3>
+                </div>
+                <table class="transaction-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- in js -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Expense Button -->
+    <div class="add-buttons">
+        <button class="floating-btn" onclick="openExpenseModal()" title="Add Expense">
+            +
+        </button>
+    </div>
+
+    <!-- Expense Model -->
+    <div id="expenseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Add Expense</h2>
+                <button class="close-btn" onclick="closeModal('expenseModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="expenseForm" autocomplete="off">
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <input type="text" class="form-input" id="expenseDescription"
+                            placeholder="Where did your money gone?" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Amount (Nominal)</label>
+                        <input type="number" class="form-input" id="expenseAmount" placeholder="Enter Amount" required
+                            min="1">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" id="expenseCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="Food">Food</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Date</label>
+                        <input type="date" class="form-input" id="expenseDate" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('expenseModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="addExpense()">Add Expense</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
